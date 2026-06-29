@@ -4,7 +4,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { MagneticButton } from "@/components/shared/MagneticButton";
-import { GradientText } from "@/components/shared/GradientText";
 
 export function ContactCTA() {
   return (
@@ -18,10 +17,10 @@ export function ContactCTA() {
             </div>
 
             <div className="relative z-10">
-              <GradientText as="h2" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white [&]:bg-none [&]:text-white">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white drop-shadow-sm">
                 Let&apos;s Build Something Great Together
-              </GradientText>
-              <p className="mt-4 text-base sm:text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
+              </h2>
+              <p className="mt-4 text-base sm:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
                 Ready to turn your idea into reality? Get in touch with us and let&apos;s create something amazing.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
