@@ -4,11 +4,14 @@ import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import Link from "next/link";
 import { FloatingShapes } from "@/components/shared/FloatingShapes";
+import { ParticleGrid } from "@/components/shared/ParticleGrid";
 import { GradientText } from "@/components/shared/GradientText";
+import { MagneticButton } from "@/components/shared/MagneticButton";
+import { TextReveal } from "@/components/shared/TextReveal";
 
 const stagger = {
   animate: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
   },
 };
 
@@ -20,6 +23,7 @@ const fadeUp = {
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-grid dark:bg-grid-dark">
+      <ParticleGrid />
       <FloatingShapes />
 
       <div className="absolute inset-0">
@@ -42,15 +46,13 @@ export function HeroSection() {
             </span>
           </motion.div>
 
-          <motion.h1
-            variants={fadeUp}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] tracking-tight"
-          >
-            We Build{" "}
-            <GradientText>Digital Products</GradientText>
-            <br />
-            That Matter
-          </motion.h1>
+          <motion.div variants={fadeUp}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] tracking-tight">
+              <TextReveal as="span" delay={0.3}>
+                We Build Digital Products That Matter
+              </TextReveal>
+            </h1>
+          </motion.div>
 
           <motion.p
             variants={fadeUp}
@@ -61,13 +63,14 @@ export function HeroSection() {
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
+            <MagneticButton
+              as="a"
               href="/contact"
               className="group relative inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-medium text-base hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/25"
             >
               Start Your Project
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            </MagneticButton>
             <Link
               href="/portfolio"
               className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-xl border border-border bg-background/50 backdrop-blur-sm font-medium text-base hover:bg-muted transition-all"

@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { projects, type Project } from "@/data/projects";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
+import { TiltCard } from "@/components/shared/TiltCard";
+import { MagneticButton } from "@/components/shared/MagneticButton";
 
 const categories = ["all", "web", "mobile", "saas", "ai"] as const;
 type Category = (typeof categories)[number];
@@ -20,48 +22,51 @@ function ProjectCard({ project }: { project: Project }) {
       transition={{ duration: 0.4 }}
       className="group relative"
     >
-      <div className="glass-card rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-300">
-        <div className="relative h-56 sm:h-64 overflow-hidden">
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-            <a
-              href={project.link}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-foreground text-sm font-medium hover:bg-white/90 transition-colors"
-            >
-              <ExternalLink className="h-3.5 w-3.5" />
-              Visit Project
-            </a>
-          </div>
-          <div className="absolute top-4 left-4">
-            <span className="px-3 py-1 rounded-full text-xs font-medium bg-white/20 backdrop-blur-md text-white capitalize">
-              {project.category}
-            </span>
-          </div>
-        </div>
-
-        <div className="p-5 sm:p-6">
-          <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-2">
-            {project.description}
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech) => (
-              <span
-                key={tech}
-                className="text-xs px-2.5 py-1 rounded-full bg-muted text-muted-foreground"
+      <TiltCard>
+        <div className="glass-card rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-300">
+          <div className="relative h-56 sm:h-64 overflow-hidden">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+              <MagneticButton
+                as="a"
+                href={project.link}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-foreground text-sm font-medium hover:bg-white/90 transition-colors"
               >
-                {tech}
+                <ExternalLink className="h-3.5 w-3.5" />
+                Visit Project
+              </MagneticButton>
+            </div>
+            <div className="absolute top-4 left-4">
+              <span className="px-3 py-1 rounded-full text-xs font-medium bg-white/20 backdrop-blur-md text-white capitalize">
+                {project.category}
               </span>
-            ))}
+            </div>
+          </div>
+
+          <div className="p-5 sm:p-6">
+            <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-2">
+              {project.description}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {project.technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="text-xs px-2.5 py-1 rounded-full bg-muted text-muted-foreground"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </TiltCard>
     </motion.div>
   );
 }

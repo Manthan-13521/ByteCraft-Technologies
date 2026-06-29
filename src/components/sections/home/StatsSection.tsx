@@ -5,12 +5,13 @@ import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { Counter } from "@/components/shared/Counter";
 
 const stats = [
-  { value: "200+", label: "Projects Delivered" },
-  { value: "50+", label: "Happy Clients" },
-  { value: "8+", label: "Years Experience" },
-  { value: "99%", label: "Client Satisfaction" },
+  { value: 200, suffix: "+", label: "Projects Delivered" },
+  { value: 50, suffix: "+", label: "Happy Clients" },
+  { value: 8, suffix: "+", label: "Years Experience" },
+  { value: 99, suffix: "%", label: "Client Satisfaction" },
 ];
 
 export function StatsSection() {
@@ -39,7 +40,7 @@ export function StatsSection() {
               className="glass-card rounded-2xl p-6 sm:p-8 text-center group hover:border-primary/20 transition-colors"
             >
               <div className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent mb-2">
-                {stat.value}
+                {isInView ? <Counter value={stat.value} suffix={stat.suffix} /> : "0"}
               </div>
               <div className="text-sm text-muted-foreground">{stat.label}</div>
             </motion.div>

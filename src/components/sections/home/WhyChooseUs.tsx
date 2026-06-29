@@ -2,6 +2,7 @@
 
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { TiltCard } from "@/components/shared/TiltCard";
 import { Code2, Palette, Zap, Shield, Users, TrendingUp } from "lucide-react";
 
 const reasons = [
@@ -58,18 +59,20 @@ export function WhyChooseUs() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
           {reasons.map((reason, i) => (
             <AnimatedSection key={reason.title} delay={i * 0.05}>
-              <div className="glass-card rounded-2xl p-6 sm:p-8 group hover:border-primary/30 transition-all duration-300 h-full">
-                <div
-                  className="inline-flex h-12 w-12 items-center justify-center rounded-xl mb-4 transition-transform group-hover:scale-110 group-hover:rotate-3"
-                  style={{ backgroundColor: `${reason.color}15` }}
-                >
-                  <reason.icon className="h-6 w-6" style={{ color: reason.color }} />
+              <TiltCard>
+                <div className="glass-card rounded-2xl p-6 sm:p-8 group hover:border-primary/30 transition-all duration-300 h-full">
+                  <div
+                    className="inline-flex h-12 w-12 items-center justify-center rounded-xl mb-4 transition-transform group-hover:scale-110 group-hover:rotate-3"
+                    style={{ backgroundColor: `${reason.color}15` }}
+                  >
+                    <reason.icon className="h-6 w-6" style={{ color: reason.color }} />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{reason.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {reason.description}
+                  </p>
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{reason.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {reason.description}
-                </p>
-              </div>
+              </TiltCard>
             </AnimatedSection>
           ))}
         </div>

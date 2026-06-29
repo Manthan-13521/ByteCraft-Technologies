@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
+import { MagneticButton } from "@/components/shared/MagneticButton";
 import { GradientText } from "@/components/shared/GradientText";
 
 export function ContactCTA() {
@@ -24,13 +25,14 @@ export function ContactCTA() {
                 Ready to turn your idea into reality? Get in touch with us and let&apos;s create something amazing.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link
+                <MagneticButton
+                  as="a"
                   href="/contact"
                   className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-white text-foreground font-medium text-base hover:bg-white/90 transition-all hover:shadow-xl"
                 >
                   Start a Conversation
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+                </MagneticButton>
                 <Link
                   href="/portfolio"
                   className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-xl border border-white/30 text-white font-medium text-base hover:bg-white/10 transition-all"

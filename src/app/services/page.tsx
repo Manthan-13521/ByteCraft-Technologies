@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
+import { TiltCard } from "@/components/shared/TiltCard";
 import { services, type Service } from "@/data/services";
 
 function ServiceCard({ service, index }: { service: Service; index: number }) {
@@ -13,66 +14,67 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
-      whileHover={{ y: -8 }}
       className="group relative"
     >
-      <div
-        style={{
-          background: `linear-gradient(135deg, ${service.color}08, ${service.color}02)`,
-          borderColor: `${service.color}20`,
-        }}
-        className="relative overflow-hidden rounded-2xl border p-6 sm:p-8 h-full hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-black/20 transition-all duration-300"
-      >
+      <TiltCard>
         <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
           style={{
-            background: `radial-gradient(600px at 50% 0%, ${service.color}10, transparent)`,
+            background: `linear-gradient(135deg, ${service.color}08, ${service.color}02)`,
+            borderColor: `${service.color}20`,
           }}
-        />
-
-        <div className="relative z-10">
+          className="relative overflow-hidden rounded-2xl border p-6 sm:p-8 h-full hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-black/20 transition-all duration-300"
+        >
           <div
-            className="inline-flex h-14 w-14 items-center justify-center rounded-2xl mb-5 transition-transform group-hover:scale-110 group-hover:rotate-3"
-            style={{ backgroundColor: `${service.color}15` }}
-          >
-            <Icon className="h-7 w-7" style={{ color: service.color }} />
-          </div>
+            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            style={{
+              background: `radial-gradient(600px at 50% 0%, ${service.color}10, transparent)`,
+            }}
+          />
 
-          <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-            {service.description}
-          </p>
-
-          <div className="space-y-2.5">
-            {service.features.map((feature) => (
-              <div key={feature} className="flex items-center gap-2.5 text-sm">
-                <div
-                  className="h-1.5 w-1.5 rounded-full shrink-0"
-                  style={{ backgroundColor: service.color }}
-                />
-                <span className="text-muted-foreground">{feature}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-6 pt-4 border-t border-border">
-            <span
-              className="inline-flex items-center gap-1.5 text-sm font-medium"
-              style={{ color: service.color }}
+          <div className="relative z-10">
+            <div
+              className="inline-flex h-14 w-14 items-center justify-center rounded-2xl mb-5 transition-transform group-hover:scale-110 group-hover:rotate-3"
+              style={{ backgroundColor: `${service.color}15` }}
             >
-              Learn More
-              <svg
-                className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+              <Icon className="h-7 w-7" style={{ color: service.color }} />
+            </div>
+
+            <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+              {service.description}
+            </p>
+
+            <div className="space-y-2.5">
+              {service.features.map((feature) => (
+                <div key={feature} className="flex items-center gap-2.5 text-sm">
+                  <div
+                    className="h-1.5 w-1.5 rounded-full shrink-0"
+                    style={{ backgroundColor: service.color }}
+                  />
+                  <span className="text-muted-foreground">{feature}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-border">
+              <span
+                className="inline-flex items-center gap-1.5 text-sm font-medium"
+                style={{ color: service.color }}
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </span>
+                Learn More
+                <svg
+                  className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </div>
           </div>
         </div>
-      </div>
+      </TiltCard>
     </motion.div>
   );
 }
