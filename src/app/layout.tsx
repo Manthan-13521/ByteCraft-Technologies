@@ -9,6 +9,8 @@ import { BackToTop } from "@/components/layout/BackToTop";
 import { CustomCursor } from "@/components/shared/CustomCursor";
 import { MouseGradient } from "@/components/shared/MouseGradient";
 import { PageTransition } from "@/components/shared/PageTransition";
+import { NoiseOverlay } from "@/components/shared/NoiseOverlay";
+import { ParallaxLayers } from "@/components/shared/ParallaxLayers";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -97,6 +99,8 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <ThemeProvider>
+          <NoiseOverlay />
+          <ParallaxLayers />
           <ScrollProgress />
           <CustomCursor />
           <MouseGradient />

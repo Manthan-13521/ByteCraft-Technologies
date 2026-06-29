@@ -30,21 +30,25 @@ export function ProcessTimeline() {
                 key={step.title}
                 initial={{ opacity: 0, x: -30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ duration: 0.5, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
                 className="relative pl-0 md:pl-20"
               >
-                <div className="hidden md:flex absolute left-4 top-1 -translate-x-1/2 h-9 w-9 rounded-full bg-background border-2 border-primary items-center justify-center">
+                <div className="hidden md:flex absolute left-4 top-1 -translate-x-1/2 h-9 w-9 rounded-full bg-background border-2 border-primary items-center justify-center shadow-lg shadow-primary/20">
                   <step.icon className="h-4 w-4 text-primary" />
                 </div>
-                <div className="glass-card rounded-2xl p-6 sm:p-8 hover:border-primary/20 transition-colors">
+                <div className="glass-card rounded-2xl p-6 sm:p-8 hover:border-primary/20 transition-all duration-300 gradient-border group">
                   <div className="flex items-center gap-3 mb-2 md:hidden">
                     <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
                       <step.icon className="h-4 w-4 text-primary" />
                     </div>
                     <span className="text-xs font-semibold text-primary">Step {i + 1}</span>
                   </div>
-                  <h3 className="text-lg font-semibold mb-1 hidden md:block">{step.title}</h3>
-                  <h3 className="text-lg font-semibold mb-1 md:hidden">{step.title}</h3>
+                  <div className="hidden md:flex items-center gap-3 mb-1">
+                    <span className="text-xs font-semibold text-primary tracking-wider uppercase">
+                      Step {String(i + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-semibold mb-1">{step.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {step.description}
                   </p>

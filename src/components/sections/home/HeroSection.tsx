@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { FloatingShapes } from "@/components/shared/FloatingShapes";
 import { ParticleGrid } from "@/components/shared/ParticleGrid";
+import { HeroSpotlight } from "@/components/shared/HeroSpotlight";
 import { GradientText } from "@/components/shared/GradientText";
 import { MagneticButton } from "@/components/shared/MagneticButton";
 import { TextReveal } from "@/components/shared/TextReveal";
@@ -24,12 +25,14 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-grid dark:bg-grid-dark">
       <ParticleGrid />
+      <HeroSpotlight />
       <FloatingShapes />
 
       <div className="absolute inset-0">
         <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-blob" />
         <div className="absolute top-1/3 -right-32 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
         <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-blob animation-delay-4000" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-primary/5 via-accent/5 to-transparent rounded-full blur-[100px] animate-breathe" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-20">
@@ -40,14 +43,15 @@ export function HeroSection() {
           className="max-w-4xl mx-auto text-center"
         >
           <motion.div variants={fadeUp} className="mb-6">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary group hover:bg-primary/15 transition-colors cursor-default">
+              <Sparkles className="h-3.5 w-3.5" />
               <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
               Building the future, one line at a time
             </span>
           </motion.div>
 
           <motion.div variants={fadeUp}>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight">
               <TextReveal as="span" delay={0.3}>
                 We Build Digital Products That Matter
               </TextReveal>
@@ -66,14 +70,14 @@ export function HeroSection() {
             <MagneticButton
               as="a"
               href="/contact"
-              className="group relative inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-medium text-base hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/25"
+              className="group relative inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-medium text-base hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/25 animate-glow-pulse"
             >
               Start Your Project
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </MagneticButton>
             <Link
               href="/portfolio"
-              className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-xl border border-border bg-background/50 backdrop-blur-sm font-medium text-base hover:bg-muted transition-all"
+              className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-xl border border-border bg-background/50 backdrop-blur-sm font-medium text-base hover:bg-muted transition-all hover:border-primary/30"
             >
               <Play className="h-4 w-4" />
               View Our Work
@@ -87,8 +91,10 @@ export function HeroSection() {
               { value: "8+", label: "Years" },
               { value: "99%", label: "Satisfaction" },
             ].map((stat) => (
-              <div key={stat.label}>
-                <div className="text-2xl sm:text-3xl font-bold text-foreground">{stat.value}</div>
+              <div key={stat.label} className="group cursor-default">
+                <div className="text-2xl sm:text-3xl font-bold text-foreground transition-colors group-hover:text-primary">
+                  {stat.value}
+                </div>
                 <div className="text-xs sm:text-sm text-muted-foreground mt-1">{stat.label}</div>
               </div>
             ))}

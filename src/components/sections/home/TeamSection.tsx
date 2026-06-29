@@ -4,6 +4,7 @@ import Image from "next/image";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { TiltCard } from "@/components/shared/TiltCard";
+import { SpotlightCard } from "@/components/shared/SpotlightCard";
 import { teamMembers } from "@/data/team";
 
 export function TeamSection() {
@@ -22,20 +23,22 @@ export function TeamSection() {
           {teamMembers.map((member, i) => (
             <AnimatedSection key={member.name} delay={i * 0.1}>
               <TiltCard>
-                <div className="glass-card rounded-2xl p-6 text-center group hover:border-primary/30 transition-all duration-300 h-full">
-                  <div className="relative mx-auto h-20 w-20 rounded-full overflow-hidden mb-4 ring-2 ring-border group-hover:ring-primary/50 transition-all">
-                    <Image
-                      src={member.avatar}
-                      alt={member.name}
-                      fill
-                      className="object-cover"
-                      sizes="80px"
-                    />
+                <SpotlightCard>
+                  <div className="glass-card rounded-2xl p-6 text-center group hover:border-primary/30 transition-all duration-300 h-full gradient-border">
+                    <div className="relative mx-auto h-20 w-20 rounded-full overflow-hidden mb-4 ring-2 ring-border group-hover:ring-primary/50 transition-all duration-300">
+                      <Image
+                        src={member.avatar}
+                        alt={member.name}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        sizes="80px"
+                      />
+                    </div>
+                    <h3 className="font-semibold text-base">{member.name}</h3>
+                    <p className="text-xs text-primary font-medium mt-0.5 mb-3">{member.role}</p>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{member.bio}</p>
                   </div>
-                  <h3 className="font-semibold text-base">{member.name}</h3>
-                  <p className="text-xs text-primary font-medium mt-0.5 mb-3">{member.role}</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{member.bio}</p>
-                </div>
+                </SpotlightCard>
               </TiltCard>
             </AnimatedSection>
           ))}
