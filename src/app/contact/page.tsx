@@ -119,7 +119,7 @@ export default function ContactPage() {
                         type="tel"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="+1 (234) 567-890"
+                        placeholder="+91 8125629601"
                         className="w-full px-4 py-2.5 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                       />
                     </div>
@@ -178,8 +178,8 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <p className="text-sm font-medium">Email</p>
-                        <a href="mailto:hello@bytecraft.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                          hello@bytecraft.com
+                        <a href="mailto:24951A05C3@iare.ac.in" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                          24951A05C3@iare.ac.in
                         </a>
                       </div>
                     </div>
@@ -189,8 +189,8 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <p className="text-sm font-medium">Phone</p>
-                        <a href="tel:+1234567890" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                          +1 (234) 567-890
+                        <a href="tel:+918125629601" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                          +91 8125629601
                         </a>
                       </div>
                     </div>
@@ -201,8 +201,8 @@ export default function ContactPage() {
                       <div>
                         <p className="text-sm font-medium">Location</p>
                         <p className="text-sm text-muted-foreground">
-                          123 Innovation Drive<br />
-                          San Francisco, CA 94105
+                          Hyderabad, Telangana<br />
+                          India
                         </p>
                       </div>
                     </div>
@@ -214,7 +214,7 @@ export default function ContactPage() {
                     <div className="text-center">
                       <MapPin className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
                       <p className="text-sm text-muted-foreground">Map Placeholder</p>
-                      <p className="text-xs text-muted-foreground">San Francisco, CA</p>
+                      <p className="text-xs text-muted-foreground">Hyderabad, India</p>
                     </div>
                   </div>
                 </div>

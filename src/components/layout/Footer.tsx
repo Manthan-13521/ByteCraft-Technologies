@@ -97,26 +97,26 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:hello@bytecraft.com"
+                  href="mailto:24951A05C3@iare.ac.in"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
                 >
                   <Mail className="h-3.5 w-3.5" />
-                  hello@bytecraft.com
+                  24951A05C3@iare.ac.in
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+918125629601"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
                 >
                   <Phone className="h-3.5 w-3.5" />
-                  +1 (234) 567-890
+                  +91 8125629601
                 </a>
               </li>
               <li>
                 <span className="text-sm text-muted-foreground flex items-center gap-2">
                   <MapPin className="h-3.5 w-3.5 shrink-0" />
-                  San Francisco, CA
+                  Hyderabad, India
                 </span>
               </li>
             </ul>
